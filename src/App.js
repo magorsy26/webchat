@@ -4,8 +4,15 @@ import { Provider } from 'react-redux';
 import MessageList from './components/messageListe';
 import Writer from './components/writer';
 import { store } from './redux';
+import Login from './components/login';
 
 function App() {
+  if(sessionStorage.getItem("name")===null){
+    return(
+      <Login></Login>
+    )
+  }
+
   return (
     <Provider store={store}>
       <div className='content'>

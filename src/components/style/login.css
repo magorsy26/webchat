@@ -1,0 +1,16 @@
+.login{
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #293133;
+}
+
+.name label{
+    color:#fff;
+}
+
+.name{
+  margin-bottom: 10px;
+}
