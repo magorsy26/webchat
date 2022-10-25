@@ -34,24 +34,25 @@ export default function Writer(){
                 className='btn btn-primary'
                 onClick={()=>{
                     let value=document.getElementById("mag").value;
-                    
-                    dispatch({
-                        type:'message/addMessage',
-                        payload:{
-                            id: Date.now(),
-                            isMymessage: true,
-                            message: value,
-                            name: sessionStorage.getItem("name")
-                           
-                        }
-                    })
-                    let data=JSON.stringify({
-                        name:sessionStorage.getItem("name"),
-                        value:value,
-                        id: Date.now()
-                    })
-                    channel.postMessage(data);
-                    document.getElementById("mag").value="";
+                    if(value!==""){
+                        dispatch({
+                            type:'message/addMessage',
+                            payload:{
+                                id: Date.now(),
+                                isMymessage: true,
+                                message: value,
+                                name: sessionStorage.getItem("name")
+                            
+                            }
+                        })
+                        let data=JSON.stringify({
+                            name:sessionStorage.getItem("name"),
+                            value:value,
+                            id: Date.now()
+                        })
+                        channel.postMessage(data);
+                        document.getElementById("mag").value="";
+                    }
                 }
             }
             >Send</button>
